@@ -1,4 +1,4 @@
-Boids, an artificial life simulation by http://en.wikipedia.org/wiki/Boids and http://www.kfish.org/boids/pseudocode.html
+Boids, an artificial life simulation by http://en.wikipedia.org/wiki/Boids and http://www.kfish.org/boid/pseudocode.html
 
 TODO:
 - Implement Rule 1: Boids try to fly towards the centre of mass of neighboring boids

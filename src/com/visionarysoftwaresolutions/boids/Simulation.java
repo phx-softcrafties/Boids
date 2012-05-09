@@ -2,7 +2,7 @@ package com.visionarysoftwaresolutions.boids;
 
 import java.util.Collection;
 
-import com.visionarysoftwaresolutions.boids.space.Velocity;
+import com.visionarysoftwaresolutions.boids.space.Point2D;
 
 public class Simulation {
     private Flock boids;
@@ -14,10 +14,14 @@ public class Simulation {
 	public int getBoidCount() {
 		return boids.size();
 	}
+	
+	public Flock getFlock(){
+		return boids;
+	}
 
 	public void update() {
 		for(Boid aBoid : boids){
-			aBoid.move(new Velocity(1,1));
+			aBoid.move(new Point2D(1,1));
 		}
 	}
 }

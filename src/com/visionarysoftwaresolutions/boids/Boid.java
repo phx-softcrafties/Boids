@@ -1,31 +1,32 @@
 package com.visionarysoftwaresolutions.boids;
 
-import com.visionarysoftwaresolutions.boids.space.Position;
-import com.visionarysoftwaresolutions.boids.space.Velocity;
+import com.visionarysoftwaresolutions.boids.space.Point;
+import com.visionarysoftwaresolutions.boids.space.Point2D;
 
 class Boid {
-    Position position;
-    Velocity velocity = new Velocity();
+    Point position;
+    Point velocity;
     
-    public Boid(Position myPosition) {
-        place(myPosition);
+    public Boid(Point myPosition) {
+        velocity = new Point2D(0,0);
+    	place(myPosition);
     }
 
-    void place(Position myPosition) {
+    void place(Point myPosition) {
         position = myPosition;
     }
     
-    public Position getPosition(){
+    public Point getPosition(){
         return position;
     }
     
-    public Velocity getVelocity(){
+    public Point getVelocity(){
         return velocity;
     }
 
-    public void move(Velocity vel) {
-        velocity = (Velocity) velocity.add(vel);
-        Position newPos = (Position) position.add(velocity);
-        place(newPos);
+    public void move(Point vel) {
+        velocity = velocity.add(vel);
+        Point newPos = position.add(velocity);
+        place((Point) newPos);
     }
 }
