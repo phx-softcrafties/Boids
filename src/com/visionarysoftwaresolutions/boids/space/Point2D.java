@@ -1,5 +1,7 @@
 package com.visionarysoftwaresolutions.boids.space;
 
+import java.util.List;
+
 public class Point2D implements Point {
 
 	protected int x;
@@ -30,16 +32,36 @@ public class Point2D implements Point {
 	public int getY() {
 		return y;
 	}
-
-	@Override
-	public Point add(Point toAdd) {
-		Point2D addition= (Point2D) toAdd;
-		return new Point2D(x+addition.getX(), y+addition.getY());
-	}
 	
 	@Override
 	public String toString(){
 		return String.format("(%d, %d)", getX(), getY());
 	}
+	@Override
+	public Point add(Point toAdd) {
+		Point2D add = (Point2D) toAdd;
+		return new Point2D(x+add.getX(), y+add.getY());
+	}
 
+	@Override
+	public Point subtract(Point toSubtract) {
+		Point2D sub = (Point2D) toSubtract;
+		return new Point2D(x-sub.getX(), y-sub.getY());
+	}
+
+	@Override
+	public Point scale(int factor) {
+		int x = getX() / factor;
+		int y = getY() / factor;
+		return new Point2D(x,y);
+	}
+
+	@Override
+	public Point centroid(List<Point> points) {
+		Point result = new Point2D(0,0);
+		for(Point aPoint : points){
+			result = result.add(aPoint);
+		}
+		return result.scale(points.size());
+	}
 }
