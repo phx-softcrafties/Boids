@@ -3,7 +3,7 @@ package com.visionarysoftwaresolutions.boids;
 import com.visionarysoftwaresolutions.boids.space.Point;
 import com.visionarysoftwaresolutions.boids.space.Point2D;
 
-class Boid {
+public class Boid {
     Point position;
     Point velocity;
     

@@ -2,7 +2,9 @@ package com.visionarysoftwaresolutions.boids;
 
 import java.util.Collection;
 
-import com.visionarysoftwaresolutions.boids.space.Point2D;
+import com.visionarysoftwaresolutions.boids.rules.Rule1;
+import com.visionarysoftwaresolutions.boids.rules.RulesEngine;
+import com.visionarysoftwaresolutions.boids.space.Point;
 
 public class Simulation {
     private Flock boids;
@@ -21,7 +23,8 @@ public class Simulation {
 
 	public void update() {
 		for(Boid aBoid : boids){
-			aBoid.move(new Point2D(1,1));
+			Point first = RulesEngine.rule1(aBoid, boids);
+			aBoid.move(first);
 		}
 	}
 }
